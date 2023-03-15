@@ -2,12 +2,12 @@
     $pembeli = "Daud";
     $uang = 15000000;
     $laptop;
-    if($uang < 10000000){
-        $laptop = "Laptop Asus";
-    }else{
-        $laptop = "Laptop HP";
-    }
-    echo "Maka $pembeli membeli $laptop";
+    // if($uang < 10000000){
+    //     $laptop = "Laptop Asus";
+    // }else{
+    //     $laptop = "Laptop HP";
+    // }
+    // echo "Maka $pembeli membeli $laptop";
     
     //inputan
     $mahasiswa = "Seragam Lengkap";// yang dirubah isi variabel 
@@ -21,4 +21,15 @@
         echo "Kena SP";
     }
     echo "<br>";
+
+    switch($uang) {
+        case $uang <= 10000000 :
+            $laptop = "Laptop Asus";
+            break;
+        case $uang <= 15000000 :
+            $laptop = "Laptop HP";
+            break;
+        default;
+    }
+    echo "Maka $pembeli membeli $laptop";
 ?>
