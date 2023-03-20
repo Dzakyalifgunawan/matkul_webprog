@@ -19,7 +19,8 @@
         echo "Laksanakan Hukuman";
     }else {
         echo "Kena SP";
-    }
+    }  
+
     echo "<br>";
 
     switch($uang) {

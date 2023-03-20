@@ -1,13 +1,13 @@
 <?php
     $calonsukses = array('Fero', 'Daud', 'Syarif', 'Dzaky');
     
-    echo "$calonsukses[3]";
-    echo "<br>";
-    var_dump($calonsukses);
-    // Associate Array 
-    $calonbos = array('daud'=>'UI Designer', 'fero'=>'BE Developer', 'dzaky'=>'FE Developer', 'syarif'=>'analis sykul');
+    // echo "$calonsukses[3]";
+    // echo "<br>";
+    // var_dump($calonsukses);
+    // // Associate Array 
+    // $calonbos = array('daud'=>'UI Designer', 'fero'=>'BE Developer', 'dzaky'=>'FE Developer', 'syarif'=>'analis sykul');
     
-    echo $calonbos['daud'];
+    // echo $calonbos['daud'];
     // Multidimensial Array 
     $startup = array(
         array('nama'=>'Daud', 'jabatan'=>'Bandar Narkoba', 'gaji'=> 10000),
@@ -28,19 +28,24 @@
         }
     }
 
+    echo "<br>";
+
     $a = 1;
     while($a <= 20) {
-        if($a % 2) {
+        if($a % 2 == 1) {
             echo $a.", ";
-            $a++;
         }
+        $a++;
     }
 
     echo "<br>";
 
     foreach($calonsukses as $d){
-        echo $d.", ";
+        echo "<b>".$d.", ";
     }
+
+    echo "<br>";
+
     for($x = 0; $x < count($calonsukses); $x++){
         echo $x;
         echo $calonsukses[$x];
