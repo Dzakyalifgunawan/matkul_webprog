@@ -7,9 +7,9 @@
     $kode = $tokoase[0]['kode'];
     $jumlahdibeli = 3;
     $hasil;
-    
+
     if($kode == $tokoase[0]['kode']){
-        if($jumlahdibeli == 3){
+        if($jumlahdibeli >= 3){
             $hasil = $jumlahdibeli * (50000 - 3000);
             echo "Dzaky membeli Buku di Toko ASE <br>";
             echo "B01 Buku ,beli sebanyak : $jumlahdibeli pcs <br>";
