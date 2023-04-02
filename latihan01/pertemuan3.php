@@ -50,4 +50,6 @@
         echo $x;
         echo $calonsukses[$x];
     }
+
+    $k = "123";
 ?>
