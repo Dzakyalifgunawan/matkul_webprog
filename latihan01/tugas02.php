@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <table border = "1" cellpadding = "10">
+    <table border = "2" cellpadding = "10">
         <tr>
             <td>No</td>
             <td>Kegiatan</td>
@@ -18,34 +18,50 @@
             array ('no' => '02', 'kegiatan' => 'Puan berolahraga'),
             array ('no' => '03', 'kegiatan' => 'Puan berpidato'),
             );
-            $kegiatan = $data[0]['kegiatan'];
+            $kegiatan = $data[2]['kegiatan'];
+            $jumlah = 5;
 
             if($kegiatan == $data[0]['kegiatan']){
-                echo kata1();    
+                if($jumlah == 3){
+                    echo kata1();  
+                }else{
+                    $jam = date("d-m-Y, h:i:s");
+                    echo "$jam, Bu Puan tidak membagi 3 baju kepada masyarakat";
+                }    
             }elseif($kegiatan == $data[1]['kegiatan']){
-                echo kata2();
-            }else{
-                echo kata3();
+                if($jumlah == 5){
+                    echo kata2();
+                }else{
+                    $jam = date("d-m-Y, h:i:s");
+                    echo "$jam, Bu Puan tidak berolahraga 5 putaran di gedung DPR";
+                }    
+            }elseif($kegiatan == $data[2]['kegiatan']){
+                if($jumlah == 10){
+                    echo kata3();
+                }else{
+                    $jam = date("d-m-Y, h:i:s");
+                    echo "$jam, Bu Puan tidak berpidato 10 kalimat di depan Pak Jokowi";
+                }
             }
 
             function kata1(){
                 $jam = date("d-m-Y, h:i:s");
                 $nama = "Puan";
-                $kata = "$jam, $nama sedang membagikan baju kepada masyarakat setempat";            
+                $kata = "$jam, $nama sedang membagikan 3 baju kepada masyarakat setempat";            
                 echo "Hari ini $kata";
             }
 
             function kata2(){
                 $jam = date("d-m-Y, h:i:s");
                 $nama = "Puan";
-                $kata = "$jam, $nama sedang berolahraga di gedung DPR";            
+                $kata = "$jam, $nama sedang berolahraga 5 putaran di gedung DPR";            
                 echo "Hari ini $kata";
             }
 
             function kata3(){
                 $jam = date("d-m-Y, h:i:s");
                 $nama = "Puan";
-                $kata = "$jam, $nama sedang Berpidato didepan Pak Jokowi";            
+                $kata = "$jam, $nama sedang Berpidato 10 kalimat didepan Pak Jokowi";            
                 echo "Hari ini $kata";
             }
 
