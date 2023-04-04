@@ -17,8 +17,9 @@
             array ('no' => '01', 'kegiatan' => 'Puan membagikan baju'),
             array ('no' => '02', 'kegiatan' => 'Puan berolahraga'),
             array ('no' => '03', 'kegiatan' => 'Puan berpidato'),
+            array ('no' => '04', 'kegiatan' => 'Pulang pulang kampung'),
             );
-            $kegiatan = $data[2]['kegiatan'];
+            $kegiatan = $data[3]['kegiatan'];
             $jumlah = 5;
 
             if($kegiatan == $data[0]['kegiatan']){
@@ -42,6 +43,9 @@
                     $jam = date("d-m-Y, h:i:s");
                     echo "$jam, Bu Puan tidak berpidato 10 kalimat di depan Pak Jokowi";
                 }
+            }else{
+                $jam = date("d-m-Y, h:i:s");
+                echo "$jam, Bu Puan pulang kampung";
             }
 
             function kata1(){
