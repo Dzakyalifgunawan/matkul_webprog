@@ -19,7 +19,7 @@
                 <div class="mb-3 row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Nama Kategori</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" id="inputPassword">
+                        <input type="text" class="form-control" id="inputkategori">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
                             <label class="form-check-label" for="flexCheckChecked">Aktif</label>
