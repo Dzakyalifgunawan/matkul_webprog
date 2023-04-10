@@ -34,7 +34,7 @@
                 <div class="mb-3 row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Isi</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" id="inputjudul">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                 </div>
                 <div class="mb-3 row">

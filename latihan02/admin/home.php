@@ -26,7 +26,7 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="col-md-3 mt-3">
+                <div class="menu col-md-3 mt-3">
                     <ul class="list-group">
                         <li class="list-group-item"><a href="">Dashbord</a></li>
                         <li class="list-group-item"><a href="">Blog</a></li>
@@ -35,9 +35,7 @@
                         <li class="list-group-item"><a href="mod_kategori/index.php">Kategori Blog</a></li>
                     </ul>
                 </div>
-                <div class="col-md">
-                    
-                </div>
+                <div class="konten col-md"></div>
                 <div class="col-md-3">
                     
                 </div>
