@@ -4,7 +4,7 @@
             
             </div>
             <div class="col-md mt-3">
-                <a class="btn btn-primary btn-sm" href="form.php">Tambah Data</a>
+                <a class="btn btn-primary btn-sm" href="">Tambah Data</a>
                 <table class="table mt-1">
                     <tr>
                         <th scope="col">ID Kategori</th>
@@ -15,16 +15,16 @@
                         <td>2</td>
                         <td>Mbolang</td>
                         <td>
-                            <button class="btn btn-primary" type="submit"><i class="bi bi-pencil-square"> Edit</i></button>
-                            <button class="btn btn-primary" type="submit"><i class="bi bi-x-lg"> Delete</i></button>
+                            <a class="btn btn-primary" type="submit"><i class="bi bi-pencil-square"> Edit</i></a>
+                            <a class="btn btn-primary" type="submit"><i class="bi bi-x-lg"> Delete</i></a>
                         </td>   
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>Kuliah</td>
                         <td>
-                            <button class="btn btn-primary" type="submit"><i class="bi bi-pencil-square"> Edit</i></button>
-                            <button class="btn btn-primary" type="submit"><i class="bi bi-x-lg"> Delete</i></button>
+                            <a class="btn btn-primary" href=""><i class="bi bi-pencil-square"> Edit</i></a>
+                            <a class="btn btn-primary" href=""><i class="bi bi-x-lg"> Delete</i></a>
                         </td>
                     </tr>
                 </table>
