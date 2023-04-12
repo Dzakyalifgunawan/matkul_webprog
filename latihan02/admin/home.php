@@ -36,11 +36,15 @@ require_once("../koneksidb.php");
                     <ul class="list-group">
                         <li class="list-group-item"><a href="?modul=mod_kategori">Blog kategori</a></li>
                         <li class="list-group-item"><a href="?modul=mod_blog">Data Blog</a></li>
-                        <li class="list-group-item"><a href="?=modul_user">Data user</a></li>
+                        <li class="list-group-item"><a href="?modul=mod_user">Data user</a></li>
                         <li class="list-group-item"><a href="">Data Menu</a></li>
                     </ul>
                 </div>
-                <div class="konten col-md"></div>
+                <div class="konten col-md">
+                    <?php
+                        echo $_GET["modul"];
+                    ?>
+                </div>
                 <div class="col-md-3">
                     
                 </div>
