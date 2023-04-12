@@ -1,3 +1,9 @@
+<?php
+
+require_once("../koneksidb.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,11 +34,10 @@
             <div class="row">
                 <div class="menu col-md-3 mt-3">
                     <ul class="list-group">
-                        <li class="list-group-item"><a href="">Dashbord</a></li>
-                        <li class="list-group-item"><a href="mod_blog/index.php">Blog</a></li>
-                        <li class="list-group-item"><a href="">Setting Menu</a></li>
-                        <li class="list-group-item"><a href="">Testing</a></li>
-                        <li class="list-group-item"><a href="mod_kategori/index.php">Kategori Blog</a></li>
+                        <li class="list-group-item"><a href="?modul=mod_kategori">Blog kategori</a></li>
+                        <li class="list-group-item"><a href="?modul=mod_blog">Data Blog</a></li>
+                        <li class="list-group-item"><a href="?=modul_user">Data user</a></li>
+                        <li class="list-group-item"><a href="">Data Menu</a></li>
                     </ul>
                 </div>
                 <div class="konten col-md"></div>
