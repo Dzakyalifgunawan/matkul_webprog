@@ -41,8 +41,12 @@ require_once("../koneksidb.php");
                     </ul>
                 </div>
                 <div class="konten col-md">
+                    <!-- Kolom untuk menampilkan konten -->
                     <?php
-                        echo $_GET["modul"];
+                        if(isset($_GET["modul"])){
+                            include_once("".$_GET["modul"]."/index.php");
+                            // include_once("namafolder/namafile");
+                        }
                     ?>
                 </div>
                 <div class="col-md-3">
