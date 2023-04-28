@@ -15,6 +15,7 @@ $qdata = mysqli_query($koneksidb, "select * from mst_dosen")or die(mysqli_error(
                     <tr>
                         <th scope="col">NO</th>
                         <th scope="col">KTP Dosen</th>
+                        <th scope="col">Nama Dosen</th>
                         <th scope="col">email Dosen</th>
                         <th scope="col">No.Telepon</th>
                         <th scope="col">Bidang Mengajar</th>
@@ -54,7 +55,7 @@ $qdata = mysqli_query($koneksidb, "select * from mst_dosen")or die(mysqli_error(
             <div class="col-md-3"></div>
             <div class="col-md">
             <h3>Form Input Data</h3>
-                <form action="mod_kategori/proses.php?aksi=insert" method="post">
+                <form action="mst_dosen/proses.php?aksi=insert" method="post">
                     <div class="mb-3 row">
                         <label for="inputPassword" class="col-sm-3 col-form-label">KTP Dosen</label>
                         <div class="col-sm-9">
@@ -69,17 +70,17 @@ $qdata = mysqli_query($koneksidb, "select * from mst_dosen")or die(mysqli_error(
                             <input type="text" class="form-control" id="em_dosen" name="em_dosen">  
                         </div>
                         <label for="inputPassword" class="col-sm-3 col-form-label">No Telepon</label>
-                        <div class="col-sm-9">
+                        <div class="col-sm-9 mt-3">
                             <input type="text" class="form-control" id="nt_dosen" name="nt_dosen">  
                         </div>
                         <label for="inputPassword" class="col-sm-3 col-form-label">Bidang Mengajar</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="bd_dosen" name="bd_dosen">  
-                        </div>
+                        </div>                        
                         <label for="inputPassword" class="col-sm-3 col-form-label">Jadwal Tugas</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="jt_dosen" name="jt_dosen">  
-                        </div>
+                            <input type="text" class="form-control" id="jt_dosen" name="jt_dosen">
+                        </div>  
                         <button class="btn btn-secondary" type="submit"><i class="bi bi-x-lg"> Batal</i></button>
                         <button class="btn btn-primary" type="submit"><i class="bi bi-save"> Simpan</i></button>
                     </div>
