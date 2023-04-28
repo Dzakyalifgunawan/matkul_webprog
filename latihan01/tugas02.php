@@ -24,27 +24,27 @@
 
             if($kegiatan == '01'){
                 if($jumlah == 3){
-                    echo kata(p == 1);  
+                    echo kata($p == 1);  
                 }else{
                     $jam = date("d-m-Y, h:i:s");
                     echo "$jam, Bu Puan tidak membagi 3 baju kepada masyarakat";
                 }    
             }elseif($kegiatan == $data[1]['kegiatan']){
                 if($jumlah == 5){
-                    echo kata(p == 2);
+                    echo kata($p == 2);
                 }else{
                     $jam = date("d-m-Y, h:i:s");
                     echo "$jam, Bu Puan tidak berolahraga 5 putaran di gedung DPR";
                 }    
             }elseif($kegiatan == $data[2]['kegiatan']){
                 if($jumlah == 10){
-                    echo kata3(p == 3);
+                    echo kata($p == 3);
                 }else{
                     $jam = date("d-m-Y, h:i:s");
                     echo "$jam, Bu Puan tidak berpidato 10 kalimat di depan Pak Jokowi";
                 }
             }else{
-                echo kata(p);
+                echo kata($p);
             }
 
             function kata($p){
