@@ -67,7 +67,7 @@ $qdata = mysqli_query($koneksidb, "SELECT a.*, nm_kategori FROM mst_blog AS a IN
 <div class="container-fluid">
         <div class="row">
             <div class="col-md-3"></div>
-            <div class="col-md">
+            <div class="col-md-8">
             <h3>Form Input Data</h3>
                 <form action="" method="post">
                     <div class="mb-3 row">
@@ -110,7 +110,7 @@ $qdata = mysqli_query($koneksidb, "SELECT a.*, nm_kategori FROM mst_blog AS a IN
                     <button class="btn btn-primary" type="submit"><i class="bi bi-save"> Simpan</i></button>
                 </form>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-3"></div>
         </div>
     </div>    
 <?php 
