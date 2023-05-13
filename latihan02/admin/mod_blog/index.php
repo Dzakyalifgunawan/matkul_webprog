@@ -47,9 +47,9 @@ $qdata = mysqli_query($koneksidb, "SELECT a.*, nm_kategori FROM mst_blog AS a IN
 <?php 
     }elseif((isset($_GET['aksi']))){
         if($_GET['aksi'] == "edit"){
-            // $query = mysqli_query($koneksidb, "select * from mst_kategori where idkategori=".$_GET['id']."")or die(mysqli_error($koneksidb));
-            // $data = mysqli_fetch_array($query);
-            // $nama = $data['nm_kategori'];
+            $query = mysqli_query($koneksidb, "select * from mst_kategori where idkategori=".$_GET['id']."")or die(mysqli_error($koneksidb));
+            $data = mysqli_fetch_array($query);
+            $nama = $data['nm_kategori'];
             $exproses = "update";
             $id = $_GET['id'];
 
