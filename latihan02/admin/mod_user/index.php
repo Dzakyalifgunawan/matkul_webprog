@@ -77,14 +77,12 @@ $qdata = mysqli_query($koneksidb, "select * from mst_user")or die(mysqli_error($
                     <div class="mb-3 row">
                         <label for="inputPassword" class="col-sm-3 col-form-label">Username</label>
                         <div class="col-sm-9">
-                            <input type="hidden" id="txt_id" name="txt_id" value="<?php echo $id; ?>">
                             <input type="text" class="form-control" id="txt_nama" name="txt_nama" value="<?php echo $nama ?>">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-9">
-                            <input type="hidden" id="txt_id" name="txt_id" value="<?php echo $id; ?>">
                             <input type="text" class="form-control" id="txt_pass" name="txt_pass" value="<?php echo $pass ?>">
                         </div>
                     </div>
