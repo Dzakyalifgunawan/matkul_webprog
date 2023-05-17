@@ -47,7 +47,7 @@ $qdata = mysqli_query($koneksidb, "SELECT a.*, nm_kategori FROM mst_blog AS a IN
 <?php 
     }elseif((isset($_GET['aksi']))){
         if($_GET['aksi'] == "edit"){
-            $query = mysqli_query($koneksidb, "select * from mst_kategori where idkategori=".$_GET['id']."")or die(mysqli_error($koneksidb));
+            $query = mysqli_query($koneksidb, "select * from mst_blog where idkategori=".$_GET['id']."")or die(mysqli_error($koneksidb));
             $data = mysqli_fetch_array($query);
             $nama = $data['nm_kategori'];
             $exproses = "update";
@@ -56,8 +56,12 @@ $qdata = mysqli_query($koneksidb, "SELECT a.*, nm_kategori FROM mst_blog AS a IN
         }elseif($_GET['aksi'] == "add"){
             // proses add 
             $exproses = "insert";
-            $id = 0;
+            $idblog = 0;
             $nama = "";
+            $judulnya = "";
+            $isinya = "";
+            $tanggalnya = "";
+            $isaktif = 0;
         }
 ?>
 
@@ -69,28 +73,34 @@ $qdata = mysqli_query($koneksidb, "SELECT a.*, nm_kategori FROM mst_blog AS a IN
             <div class="col-md-3"></div>
             <div class="col-md-8">
             <h3>Form Input Data</h3>
-                <form action="" method="post">
+                <form action="mod_blog/proses.php?proses=<?php echo $exproses; ?>" method="post">
+                    <input type="hidden" name="idblog" value="<?php echo $idblog; ?>">
                     <div class="mb-3 row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Kategori Blog</label>
                         <div class="col-sm-7">
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" name="kategori">
                                 <option selected>-- Pilih Kategori --</option>
-                                <option value="1">Kuliah</option>
-                                <option value="2">Mbolang</option>
-                                <option value="3">Rebahan</option>
+                                <?php
+                                   $qkategori = mysqli_query($koneksidb, "select * from mst_kategori")
+                                   or die("Gagal simpan".mysqli_error($koneksidb));
+                                   while ($cb = mysqli_fetch_array($qkategori)){
+                                        if($cb[$idka])
+                                        echo '<option value="'.$cb["idkategori"].'">'.$cb["nm_kategori"].'</option>';
+                                   }
+                                ?>
                             </select>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Judul</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" id="inputjudul" name="judul">
+                            <input type="text" class="form-control" id="judul" name="judul" value="<?php echo $judulnya; ?>">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Isi</label>
                         <div class="col-sm-7">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" id="isi" rows="3" name="isi"><?php echo $isinya; ?></textarea>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -102,7 +112,8 @@ $qdata = mysqli_query($koneksidb, "SELECT a.*, nm_kategori FROM mst_blog AS a IN
                     <div class="mb-3 row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Tanggal Input</label>
                         <div class="col-sm-7">
-                            <input type="date" class="form-control" id="inputtanggal" name="tanggal">
+                            <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?php echo $tanggalnya; ?>">
+                            <input type="checkbox" name="is_aktif" >
                         </div>
                     </div>
                     <hr>

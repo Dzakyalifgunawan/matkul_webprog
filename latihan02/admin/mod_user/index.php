@@ -53,7 +53,7 @@ $qdata = mysqli_query($koneksidb, "select * from mst_user")or die(mysqli_error($
         }elseif($_GET['aksi'] == "add"){
             // proses add 
             $exproses = "insert";
-            $id = 0;
+            $id = 0; // batuan untuk menskip error
             $nama = "";
             $pass = "";
         }
@@ -88,7 +88,7 @@ $qdata = mysqli_query($koneksidb, "select * from mst_user")or die(mysqli_error($
                     </div>
                     <div class="mb-3 row">
                         <div class="col-sm-9">
-                            <button class="btn btn-secondary" type="submit"><i class="bi bi-x-lg"> Batal</i></button>
+                            <button class="btn btn-secondary" type="reset"><i class="bi bi-x-lg"> Batal</i></button>
                             <button class="btn btn-primary" type="submit"><i class="bi bi-save"> Simpan</i></button>
                         </div>
                     </div>
