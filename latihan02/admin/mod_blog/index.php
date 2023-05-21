@@ -18,6 +18,7 @@ $qdata = mysqli_query($koneksidb, "SELECT a.*, nm_kategori FROM mst_blog AS a IN
                         <td scope="col">Gambar</td>
                         <td scope="col">isi</td>
                         <td scope="col">Kategori</td>
+                        <td scope="col">Aktif</td>
                         <td scope="col">Action</td>
                     </tr>
                     <?php
@@ -30,9 +31,10 @@ $qdata = mysqli_query($koneksidb, "SELECT a.*, nm_kategori FROM mst_blog AS a IN
                         <td><?php echo $row['file_gmb']?></td>
                         <td><?php echo $row['isi_blog']?></td>
                         <td><?php echo $row['nm_kategori']?></td>
+                        <td><?php echo $row['is_aktif']?></td>
                         <td>
-                            <button class="btn btn-primary" type="submit"><i class="bi bi-pencil-square"> Edit</i></button>
-                            <button class="btn btn-primary" type="submit"><i class="bi bi-x-lg"> Delete</i></button>
+                            <a href="?modul=mod_blog&aksi=edit&id=<?php echo $row['id_blog']; ?>" class="btn btn-primary"><i class="bi bi-pencil-square"> Edit</i></a>
+                            <a href="mod_blog/proses.php?proses=delete&id=<?php echo $row['id_blog']; ?>" class="btn btn-primary"><i class="bi bi-x-lg"> Delete</i></a>
                         </td>
                     </tr>
                     <?php
@@ -47,17 +49,22 @@ $qdata = mysqli_query($koneksidb, "SELECT a.*, nm_kategori FROM mst_blog AS a IN
 <?php 
     }elseif((isset($_GET['aksi']))){
         if($_GET['aksi'] == "edit"){
-            $query = mysqli_query($koneksidb, "select * from mst_blog where idkategori=".$_GET['id']."")or die(mysqli_error($koneksidb));
+            $query = mysqli_query($koneksidb, "select * from mst_blog where id_blog=".$_GET['id']."")or die(mysqli_error($koneksidb));
             $data = mysqli_fetch_array($query);
-            $nama = $data['nm_kategori'];
+            $judulnya = $data['judul'];
+            $isinya = $data['isi_blog'];
+            $tanggalnya = $data['tgl_blog'];
             $exproses = "update";
-            $id = $_GET['id'];
+            $kategorinya = $data['id_kategori'];
+            $idblog = $_GET['id'];
+            $isaktif = $data['is_aktif'];
 
         }elseif($_GET['aksi'] == "add"){
             // proses add 
             $exproses = "insert";
             $idblog = 0;
             $nama = "";
+            $kategorinya = "";
             $judulnya = "";
             $isinya = "";
             $tanggalnya = "";
@@ -84,8 +91,12 @@ $qdata = mysqli_query($koneksidb, "SELECT a.*, nm_kategori FROM mst_blog AS a IN
                                    $qkategori = mysqli_query($koneksidb, "select * from mst_kategori")
                                    or die("Gagal simpan".mysqli_error($koneksidb));
                                    while ($cb = mysqli_fetch_array($qkategori)){
-                                        if($cb[$idka])
-                                        echo '<option value="'.$cb["idkategori"].'">'.$cb["nm_kategori"].'</option>';
+                                        if($cb["idkategori"] == $kategorinya){
+                                            $pilih = "selected";
+                                        }else{
+                                            $pilih = "";
+                                        }
+                                        echo '<option value="'.$cb["idkategori"].'" '.$pilih.'>'.$cb["nm_kategori"].'</option>';
                                    }
                                 ?>
                             </select>
@@ -113,11 +124,11 @@ $qdata = mysqli_query($koneksidb, "SELECT a.*, nm_kategori FROM mst_blog AS a IN
                         <label for="inputPassword" class="col-sm-2 col-form-label">Tanggal Input</label>
                         <div class="col-sm-7">
                             <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?php echo $tanggalnya; ?>">
-                            <input type="checkbox" name="is_aktif" >
+                            <input type="checkbox" name="is_aktif" <?php if($isaktif == 1){ echo "checked"; } ?>>
                         </div>
                     </div>
                     <hr>
-                    <button class="btn btn-secondary" type="submit"><i class="bi bi-x-lg"> Delete</i></button>
+                    <button class="btn btn-secondary" type="reset"><i class="bi bi-x-lg"> Delete</i></button>
                     <button class="btn btn-primary" type="submit"><i class="bi bi-save"> Simpan</i></button>
                 </form>
             </div>

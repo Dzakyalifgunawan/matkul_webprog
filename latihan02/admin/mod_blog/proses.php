@@ -23,11 +23,18 @@ if($_GET['proses'] == "insert"){
     }
 }elseif($_GET['proses'] == "update"){
     echo "Proses Update";
-    $username = $_POST['txt_nama'];
-    $pass = $_POST['txt_pass'];
-    $id_user = $_POST["id_user"];
-    $exsave = mysqli_query($koneksidb,"UPDATE mst_user SET username = '$username', pass_user = '$pass'
-    where id_user = $id_user") or die("Gagal simpan".mysqli_error($koneksidb));
+    $judulx = $_POST['judul'];
+    $isix = $_POST["isi"];
+    $kategorix = $_POST["kategori"];
+    $tgl = $_POST["tanggal"];
+    if(isset($_POST['is_aktif'])){ // input checkbox untuk mendapatkan hasil 
+        $isaktif = 1;
+    }else{
+        $isaktif = 0;
+    }
+    $idblog = $_POST["idblog"];
+    $exsave = mysqli_query($koneksidb,"UPDATE mst_blog SET judul = '$judulx', isi_blog = '$isix', tgl_blog = '$tgl', id_kategori = '$kategorix', is_aktif = '$isaktif' 
+    where id_blog = $idblog") or die("Gagal simpan".mysqli_error($koneksidb));
     if($exsave){
         // ketik proses simpan berhasil
         header("Location: http://localhost/matkul_webprog/latihan02/admin/home.php?modul=mod_blog");
@@ -35,7 +42,7 @@ if($_GET['proses'] == "insert"){
 }elseif($_GET['proses'] == "delete"){
     echo "Proses Delete";
     $id = $_GET['id'];
-    $exsave = mysqli_query($koneksidb,"delete from mst_user where id_user= $id") or die("Gagal simpan".mysqli_error($koneksidb));
+    $exsave = mysqli_query($koneksidb,"delete from mst_blog where id_blog= $id") or die("Gagal simpan".mysqli_error($koneksidb));
     if($exsave){
         // ketik proses simpan berhasil
         header("Location: http://localhost/matkul_webprog/latihan02/admin/home.php?modul=mod_blog");
