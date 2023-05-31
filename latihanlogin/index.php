@@ -17,7 +17,7 @@ require_once("koneksi_db.php");
         <form action="checklogin.php" method="post">
             <?php
             session_start();
-            session_destroy();
+            session_destroy(); 
             if(isset($_SESSION['pesan'])){
                 echo $_SESSION['pesan'];
             }else{

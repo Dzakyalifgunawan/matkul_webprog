@@ -1,7 +1,7 @@
 <?php
     $servername = "localhost";
     $database = "dbperusahaan";
-    $user_db = "root";
+    $user_db = "root"; 
     $pass_db = "";
 
 // fungsi untuk mengkoneksikna ke database mysql

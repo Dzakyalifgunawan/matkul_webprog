@@ -1,7 +1,7 @@
 <?php
 require_once("koneksi_db.php");
 session_start();
-$user =$_POST['txt_user'];
+$user =$_POST['txt_user']; 
 $pass = md5($_POST['txt_pasw']);
 $query_login = mysqli_query($koneksidb, "SELECT * FROM mst_user where password = '".$pass."' AND BINARY username = '".$user."'")or die(mysqli_error($koneksidb));
 $checkhasil = mysqli_num_rows($query_login);
