@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(!isset($_SESSION['namalog'])){ //ini untuk cek, bahwa user harus login terlebih dahulu. jika belum maka kembali ke index (halaman login) 
+        header("location: index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +18,9 @@
         <h2>Selamat, <?php echo $_SESSION['namalog']; ?></h2>
         <a href="mod_user/index.php" class="btn">Modul User</a>
         <a href="mod_pegawai/index.php" class="btn">Modul Pegawai</a>
+        <div class="konten">
+            halo
+        </div>
     </div>
 </body>
 </html>

@@ -31,3 +31,9 @@ label, input{
     background-color: aqua;
     
 }
+
+.konten{
+    margin: 60px;
+    padding: 20px;
+    background-color: brown;
+}
