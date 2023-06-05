@@ -1,3 +1,8 @@
+<?php
+
+require_once("../koneksidb.php");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +14,20 @@
 </head>
 <body>
   <section>
-        <div id="judul"></div>
-        <h1></h1>
-        <h2 class="title"></h2>
-        <form action="#" method="get">       
+        <div class="col-md">
+          <h2 class="title">Login</h2>
+        </div>
+        <form action="checklogin.php" method="post">
+          <?php
+            session_start();
+            session_destroy(); 
+            if(isset($_SESSION['pesan'])){
+                echo $_SESSION['pesan'];
+            }else{
+                session_unset();
+            }
+            
+          ?>       
           <div class="mb-3 row">
             <div class="col-md-3 chi"></div>
             <div class="col-md-2">Username</div>
@@ -33,7 +48,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-2"></div>
             <div class="col-md-2 d-grid gap-2 d-md-block">
-              <button class="btn btn-primary" type="button" name="buttonlogin" id="buttonlogin" onclick="checklogin('home.html')"><i class="bi bi-save2"></i> Simpan</button>
+              <button class="btn btn-primary" type="submit" name="buttonlogin" id="buttonlogin" onclick="checklogin('home.html')"><i class="bi bi-save2"></i> Simpan</button>
             </div>
             <div class="col-md-1"></div>
           </div>
