@@ -1,8 +1,8 @@
 <?php
     session_start();
-    if(!isset($_SESSION['namalog'])){ //ini untuk cek, bahwa user harus login terlebih dahulu. jika belum maka kembali ke index (halaman login) 
-        header("location: index.php");
-    }
+    require_once("koneksi_db.php");
+    require_once("config.php");
+    securtiylogin();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,10 +16,24 @@
 <body>
     <div class="container">
         <h2>Selamat, <?php echo $_SESSION['namalog']; ?></h2>
-        <a href="mod_user/index.php" class="btn">Modul User</a>
-        <a href="mod_pegawai/index.php" class="btn">Modul Pegawai</a>
+        <a href="?modul=mod_user" class="btn">Modul User</a>
+        <a href="?modul=mod_pegawai" class="btn">Modul Pegawai</a>
+        <a href="logout.php" class="btn">Log out</a>
         <div class="konten">
-            halo
+            <?php
+                if(isset($_GET["modul"]) && !isset($_GET['aksi'])){
+                    //nama folder otomatis sesuai value yang dikirim melalui variabel modul
+                    include_once("".$_GET["modul"]."/index.php");
+                    // include_once("namafolder/namafile");
+                }
+                if(isset($_GET["modul"]) && isset($_GET['aksi'])){
+                    //akan menampilkan file form.php jika ada pengiriman variabel modul dan aksi 
+                    include_once("".$_GET["modul"]."/form.php");
+                    // include_once("namafolder/namafile");
+                }
+                // include_once("mod_user/index.php");
+                // include_once("mod_pegawai/index.php");
+            ?>
         </div>
     </div>
 </body>

@@ -2,6 +2,7 @@
 
 require_once("../koneksidb.php");
 
+
 ?>
 
 <!DOCTYPE html>
@@ -14,47 +15,49 @@ require_once("../koneksidb.php");
     <title>Home</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <div class="container-fluid">
-            <h3>Logo Perusahaan</h3>
-            <center>
-                <h3>Dzaky</h3>
-            </center>
-            <div class="navbar" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Sign out</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="menu col-md-3 mt-3">
-                    <ul class="list-group">
-                        <li class="list-group-item"><a href="?modul=mod_kategori">Blog kategori</a></li>
-                        <li class="list-group-item"><a href="?modul=mod_blog">Data Blog</a></li>
-                        <li class="list-group-item"><a href="?modul=mod_user">Data user</a></li>
-                        <li class="list-group-item"><a href="">Data Menu</a></li>
+    <form action="" method="post">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <div class="container-fluid">
+                <h3>Logo Perusahaan</h3>
+                <center>
+                    <h3>Dzaky</h3>
+                </center>
+                <div class="navbar" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="">Sign out</a>
+                        </li>
                     </ul>
                 </div>
-                <div class="konten col-md">
-                    <!-- Kolom untuk menampilkan konten -->
-                    <?php
-                        if(isset($_GET["modul"])){
-                            include_once("".$_GET["modul"]."/index.php");
-                            // include_once("namafolder/namafile");
-                        }
-                    ?>
-                </div>
-                <div class="col-md-3">
-                    
+            </div>
+        </nav>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="menu col-md-3 mt-3">
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="?modul=mod_kategori">Blog kategori</a></li>
+                            <li class="list-group-item"><a href="?modul=mod_blog">Data Blog</a></li>
+                            <li class="list-group-item"><a href="?modul=mod_user">Data user</a></li>
+                            <li class="list-group-item"><a href="">Data Menu</a></li>
+                        </ul>
+                    </div>
+                    <div class="konten col-md">
+                        <!-- Kolom untuk menampilkan konten -->
+                        <?php
+                            if(isset($_GET["modul"])){
+                                include_once("".$_GET["modul"]."/index.php");
+                                // include_once("namafolder/namafile");
+                            }
+                        ?>
+                    </div>
+                    <div class="col-md-3">
+                        
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
