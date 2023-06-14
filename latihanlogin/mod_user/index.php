@@ -20,7 +20,7 @@
          <td><?php  echo $data['username']; ?></td>
          <td><?php echo $data['nama']; ?></td>
          <td>
-            <a href="">Ubah</a>
+            <a href="?modul=mod_user&aksi=ubah&user=<?php  echo $data['username']; ?>">Ubah</a>
             <a href="">Hapus</a>
          </td>
       </tr>
