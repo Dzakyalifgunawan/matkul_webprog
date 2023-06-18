@@ -13,7 +13,7 @@ $cekdata = mysqli_num_rows($query_cekdata);
 if($cekdata > 0){
     echo "Username sudah ada";
 }else{
-    $query_simpan = mysqli_query($koneksidb,"insert into mst_user(username,nama,password, is_active) values('".$txuser."','".$txnama."','".$txtpass."','')");
+    $query_simpan = mysqli_query($koneksidb,"insert into mst_user(username,nama,password, is_active) values('".$txuser."','".$txnama."','".$txtpass."', 1)");
     if($query_simpan){
         echo "Tersimpan";
         header("Location:http://localhost/matkul_webprog/latihanlogin/home.php?modul=mod_user");

@@ -21,11 +21,10 @@
          <td><?php echo $data['nama']; ?></td>
          <td>
             <a href="?modul=mod_user&aksi=ubah&user=<?php  echo $data['username']; ?>">Ubah</a>
-            <a href="">Hapus</a>
+            <a href="mod_user/proses_delete.php?proses=delete&user=<?php echo $data['username']; ?>">Hapus</a>
          </td>
       </tr>
       <?php
-
          };
       ?>
    </table>

@@ -6,7 +6,6 @@ $txnama= $_POST['txt_nama'];
 $txuser = $_POST['txt_user']; // sesuai atribut name pada form
 $txtpass_baru = ($_POST['txt_pasw']);
 $txtpass_lama = ($_POST['pass_lama']);
-$is_active = 0;
 
 $passwordnya = "";
 if($txtpass_baru = "" || $txtpass_baru == NULL || empty($txnama)){
@@ -14,7 +13,7 @@ if($txtpass_baru = "" || $txtpass_baru == NULL || empty($txnama)){
 }else{
     $passwordnya = md5($txtpass_baru);
 }
-$query_update = mysqli_query($koneksidb, "update mst_user set nama='".$txnama."', password='".$passwordnya."' where username='".$txuser."', ");
+$query_update = mysqli_query($koneksidb, "update mst_user set nama='".$txnama."', password='".$passwordnya."' where username='".$txuser."'");
 
 if($query_update){
     echo "Data Berhasil di Update";

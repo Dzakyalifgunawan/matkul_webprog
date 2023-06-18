@@ -3,7 +3,7 @@ require_once("koneksi_db.php");
 session_start();
 $user =$_POST['txt_user']; 
 $pass = md5($_POST['txt_pasw']);
-$query_login = mysqli_query($koneksidb, "SELECT * FROM mst_user where password = '".$pass."' AND BINARY username = '".$user."'")or die(mysqli_error($koneksidb));
+$query_login = mysqli_query($koneksidb, "SELECT * FROM mst_user where password = '".$pass."' AND BINARY username = '".$user."' and is_active = 1")or die(mysqli_error($koneksidb));
 $checkhasil = mysqli_num_rows($query_login);
 // BINARY untuk perbedaan penggunaan huruf besar dan huruf kecil
 $hasil = mysqli_fetch_array($query_login);//variabel yg menampung hasil query
