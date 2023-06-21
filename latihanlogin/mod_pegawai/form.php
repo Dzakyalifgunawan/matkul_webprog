@@ -4,7 +4,7 @@ if($_GET['aksi'] == "tambah"){
 <div class="container">
 <h3>Input Data</h3>
 <!-- action untuk mengarahkan ke file untuk  -->
-    <form action="mod_pegawai/proses_add.php" method="post">
+    <form action="mod_pegawai/proses_add.php" method="post" enctype="multipart/form-data">
         <div class="col-md">
             <label for="txt_user">Nama Pegawai</label>
             <input type="text" id="txt_nama" name="txt_nama"
@@ -18,11 +18,13 @@ if($_GET['aksi'] == "tambah"){
         <div class="col-md">
             <label for="tx_divisi">Divisi Jabatan</label>
             <select name="tx_divisi" class="form-select">
-                <option value="0">-- Pilih Divisi</option>
-                <option value="1">IT</option>
-                <option value="2">Accounting</option>
-                <option value="3">HRD</option>
-                <option value="4">Direksi</option>
+                <option value="">-- Pilih Divisi</option>
+                <?php
+                    $qdivisi = mysqli_query($koneksidb, "select * from mst_divisi");
+                    while($c = mysqli_fetch_array($qdivisi)){
+                        echo "<option value=".$c['iddivisi'].">".$c['nama_divisi']."</option> ";
+                    }
+                ?>
             </select>             
         </div>
         <div class="col-md">
@@ -31,12 +33,8 @@ if($_GET['aksi'] == "tambah"){
         </div>
         <div class="col-md">
             <label for="status">Status Pegawai</label>
-            <input type="checkbox" id="st_kontrak" name="kontrak"> Kontrak
-            <input type="checkbox" id="st_tetap" name="tetap"> Tetap
-        </div>
-        <div class="col-md">
-            <label for="status">Tanggal Bergabung</label>
-            <input type="date" id="tx_tgl" name="tx_tgl"> 
+            <input type="checkbox" name="st_kontrak" name="kontrak"> Kontrak
+            <input type="checkbox" name="st_kontrak" name="tetap"> Tetap
         </div>
         <div class="col-md">
             <label for="tx_tgl">Tanggal Bergabung</label>
