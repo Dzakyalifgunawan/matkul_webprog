@@ -1,15 +1,14 @@
 <?php
-// ini untuk menyisipkan file koneksi, 
-// tanda ../ ini berarti harus keluar folder mod_user karena file ada diluarnya 
 require_once("../koneksi_db.php");
-
-if($_GET['proses'] == "delete"){
-    echo "Proses Delete";
-    $user = $_GET['user'];
-    $exsave = mysqli_query($koneksidb,"delete from mst_user where username = $user") or die("Gagal simpan".mysqli_error($koneksidb));
-    if($exsave){
-        // ketik proses simpan berhasil
-        header("Location: http://localhost/matkul_webprog/latihanlogin/home.php?modul=mod_user");
-    }
+$hapus = $_GET["idpeg"];
+$data = mysqli_query($koneksidb, "SELECT * FROM mst_pegawai where idpegawai = $hapus");
+$lihat = mysqli_fetch_array($data);
+if(isset($hapus)){
+    $path = "../filefoto/".$lihat['foto'];
+    unlink($path);
+}
+$query_update = mysqli_query($koneksidb, "DELETE FROM mst_pegawai where idpegawai = $hapus");
+if($query_update){
+    header("Location:http://localhost/matkul_webprog/latihanlogin/home.php?modul=mod_pegawai");
 }
 ?>

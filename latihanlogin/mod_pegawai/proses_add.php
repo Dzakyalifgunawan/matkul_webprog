@@ -2,6 +2,7 @@
 // ini untuk menyisipkan file koneksi, 
 // tanda ../ ini berarti harus keluar folder mod_user karena file ada diluarnya 
 require_once("../koneksi_db.php");
+$idpeg = $_POST['idpegawai'];
 $txnama= $_POST['txt_nama'];
 $txdivisi = $_POST['tx_divisi'];
 $txjabatan = $_POST['tx_jabatan'];
@@ -61,9 +62,7 @@ if($boleh_upload == 1){
     //if ini melakukan proses dan sekaligus 
     if(move_uploaded_file($file['tmp_name'], $target_file)){
         notif("File sudah diupload");
-        $ceknamafile = $file['name'];
-        // proses insert 
-        
+        $ceknamafile = $file['name']; 
     }else{
         notif('Gagal Upload File');
     }
@@ -77,14 +76,17 @@ function notif($pesan){
     echo "alert('".$pesan."')";
     echo "</script>";
     //<meta http-quiv="refresh" content="0;url=">;
-    echo '<meta http-equiv="refresh" content="0;url=http://localhost/matkul_webprog/latihanlogin/home.php?modul=mod_pegawai&aksi=tambah">';
+    echo '<meta http-equiv="refresh" content="0;url=http://localhost/matkul_webprog/latihanlogin/home.php?modul=mod_pegawai">';
 }
 
-if($_GET['aksi'] == 'tambah'){
-    
+$query_cekdata = mysqli_query($koneksidb,"select * from mst_pegawai where idpegawai='".$idpeg."'");
+//
+$cekdata = mysqli_num_rows($query_cekdata);
+if($cekdata > 0){
+    echo "Username sudah ada";
 }else{
-    
+    $queryupload = mysqli_query($koneksidb,"INSERT INTO mst_pegawai
+    (nama_peg, divisi, jabatan, tgl_masuk, status, alamat, jk, foto) 
+    VALUES('".$txnama."','".$txdivisi."','".$txjabatan."','".$tgl."','".$status."','".$alamat."','".$jk."','".$ceknamafile."')");
 }
-
-
 ?>

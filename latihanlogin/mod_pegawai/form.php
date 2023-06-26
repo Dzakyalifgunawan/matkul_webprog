@@ -12,8 +12,8 @@ if($_GET['aksi'] == "tambah"){
         </div>
         <div class="col-md">
             <label for="jk">Jenis Kelamin</label>
-            <input type="radio" name="op_jk"> Perempuan
-            <input type="radio" name="op_jk"> Laki - Laki
+            <input type="radio" name="op_jk" value="wanita"> Wanita
+            <input type="radio" name="op_jk" value="pria"> Pria
         </div>
         <div class="col-md">
             <label for="tx_divisi">Divisi Jabatan</label>
@@ -57,13 +57,13 @@ if($_GET['aksi'] == "tambah"){
     }elseif($_GET['aksi'] == "ubah"){
         // variabel untuk menampung value dari variabel user yang dikirim lewat url
         $usernya = $_GET['user'];
-        $query_getdata = mysqli_query($koneksidb, "select * from mst_user where username= '".$usernya."'");
+        $query_getdata = mysqli_query($koneksidb, "select * from mst_pegawai where idpegawai= '".$usernya."'");
         $data = mysqli_fetch_array($query_getdata);
 ?>
 <div class="container">
 <h3>Input Data</h3>
 <!-- action untuk mengarahkan ke file untuk  -->
-    <form action="mod_pegawai/proses_add.php" method="post">
+    <form action="mod_pegawai/proses_edit.php" method="post">
         <div class="col-md">
             <label for="txt_user">Nama Pegawai</label>
             <input type="text" id="txt_nama" name="txt_nama">
