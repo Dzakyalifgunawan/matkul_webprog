@@ -56,7 +56,7 @@ if($_GET['aksi'] == "tambah"){
 <?php
     }elseif($_GET['aksi'] == "ubah"){
         // variabel untuk menampung value dari variabel user yang dikirim lewat url
-        $usernya = $_GET['user'];
+        $usernya = $_GET['id'];
         $query_getdata = mysqli_query($koneksidb, "select * from mst_pegawai where idpegawai= '".$usernya."'");
         $data = mysqli_fetch_array($query_getdata);
 ?>
@@ -66,7 +66,7 @@ if($_GET['aksi'] == "tambah"){
     <form action="mod_pegawai/proses_edit.php" method="post">
         <div class="col-md">
             <label for="txt_user">Nama Pegawai</label>
-            <input type="text" id="txt_nama" name="txt_nama">
+            <input type="text" id="txt_nama" name="txt_nama" value="<?php echo $data['nama_peg']; ?>">
         </div>
         <div class="col-md">
             <label for="jk">Jenis Kelamin</label>
@@ -85,7 +85,7 @@ if($_GET['aksi'] == "tambah"){
         </div>
         <div class="col-md">
             <label for="tx_jabatan">Jabatan</label>
-            <input type="text" id="tx_jabatan" name="tx_jabatan">
+            <input type="text" id="tx_jabatan" name="tx_jabatan" value="<?php echo $data['jabatan']; ?>">
         </div>
         <div class="col-md">
             <label for="status">Status Pegawai</label>
@@ -94,10 +94,6 @@ if($_GET['aksi'] == "tambah"){
         </div>
         <div class="col-md">
             <label for="status">Tanggal Bergabung</label>
-            <input type="date" id="tx_tgl" name="tx_tgl"> 
-        </div>
-        <div class="col-md">
-            <label for="tx_tgl">Tanggal Bergabung</label>
             <input type="date" id="tx_tgl" name="tx_tgl"> 
         </div>
         <div class="col-md">
