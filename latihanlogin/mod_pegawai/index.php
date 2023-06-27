@@ -14,6 +14,7 @@ or die(mysqli_error($koneksidb));
          <th>Status</th>
          <th>Tanggal Masuk</th>
          <th>Foto</th>
+         <th>Alamat</th>
          <th>Action</th>
       </tr>
       <!-- ini untuk baris yang akan menampilkan data -->
@@ -32,6 +33,7 @@ or die(mysqli_error($koneksidb));
          <td><?php echo $data['status']; ?></td>
          <td><?php echo $tanggalbaru; ?></td>
          <td><img src="filefoto/<?php echo $data['foto'];?>" width="100px" height="100px"></td>
+         <td><?php echo $data['alamat']; ?></td>
          <td>
             <a href="?modul=mod_pegawai&aksi=ubah&id=<?php  echo $data['idpegawai']; ?>">Ubah</a>
             <a href="mod_pegawai/proses_delete.php?idpeg=<?php echo $data['idpegawai']; ?>">Hapus</a>
