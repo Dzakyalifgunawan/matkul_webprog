@@ -79,14 +79,7 @@ function notif($pesan){
     echo '<meta http-equiv="refresh" content="0;url=http://localhost/matkul_webprog/latihanlogin/home.php?modul=mod_pegawai">';
 }
 
-$query_cekdata = mysqli_query($koneksidb,"select * from mst_pegawai where idpegawai='".$idpeg."'");
-//
-$cekdata = mysqli_num_rows($query_cekdata);
-if($cekdata > 0){
-    echo "Username sudah ada";
-}else{
-    $queryupload = mysqli_query($koneksidb,"INSERT INTO mst_pegawai
-    (nama_peg, divisi, jabatan, tgl_masuk, status, alamat, jk, foto) 
-    VALUES('".$txnama."','".$txdivisi."','".$txjabatan."','".$tgl."','".$status."','".$alamat."','".$jk."','".$ceknamafile."')");
-}
+$queryupload = mysqli_query($koneksidb,"INSERT INTO mst_pegawai
+(nama_peg, divisi, jabatan, tgl_masuk, status, alamat, jk, foto) 
+VALUES('".$txnama."','".$txdivisi."','".$txjabatan."','".$tgl."','".$status."','".$alamat."','".$jk."','".$ceknamafile."')");
 ?>
