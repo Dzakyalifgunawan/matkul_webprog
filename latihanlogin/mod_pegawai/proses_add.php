@@ -20,14 +20,14 @@ if(isset($_POST['op_jk'])){
 
 // ini untuk mendapatkan value dari checkbox
 if(isset($_POST['st_kontrak'])){
-    $status = "Kontrak";
-}else {
-    $status = "";
+    $status = "kontrak";
+}elseif(isset($_POST['st_tetap'])){
+    $status = "tetap";
 }
 
 //Start Proses upload Gambar
 $file = $_FILES['tx_file']; 
-var_dump($file); //ini untuk menampilkan output bentuk array
+// var_dump($file); //ini untuk menampilkan output bentuk array
 // tentukan folder lokasi direktori penyimpanan file
 echo "<hr>";
 $target_folder = "../filefoto/";
